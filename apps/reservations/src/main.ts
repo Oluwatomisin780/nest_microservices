@@ -12,10 +12,10 @@ async function bootstrap() {
     }),
   );
   app.useLogger(app.get(Logger));
+  app.use(cookieParser());
   console.log('hello');
   const configService = app.get(ConfigService);
   const port = configService.get('PORT');
-  app.use(cookieParser());
   await app.listen(port);
 }
 bootstrap();
